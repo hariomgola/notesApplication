@@ -18,9 +18,7 @@
  Why Node.js
     - Node.js is one of the hot demand in market.
     - Node.js can also use as backend as well as front end application.
-    - Node.js uses and event-driven, non-blocking I/O model that makes it lightweight and efficient. 
-
-
+    - Node.js uses and event-driven, non-blocking I/O model that makes it lightweight and efficient.
 
  Creating notes app
    - for Other module use module.export to export the file and use it the application
@@ -33,6 +31,24 @@
          # install a global npm package utility which is really nice it runs our applicaton automatically when the code changes.
          # 'npm install nodemon -g' putting -g flag to install it gloally.
          # Running node application simply write down 'node app.js'  with nodemon put 'nodemon app.js'
+         # Using yargs librray for command lie arguments 'npm i yargs' or 'npm install yargs' to take argument input.
+
+ Getting input from User
+   - We can access command line with the help of global variable.
+
+
+
+ Command Use by Application
+   - node app.js add
+   - node app.js remove
+   - node app.js add --title="This is my Title"
+   - node app.js --help
+   - node app.js add
+   - node app.js remove
+   - node app.js list
+   - node app.js read
+   - node app.js add --title="shopping list"
+   - Using json to pass or get Data
 
 
 
