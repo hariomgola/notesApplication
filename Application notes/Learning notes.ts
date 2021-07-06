@@ -51,6 +51,8 @@
    - Using json to pass or get Data
    - node app.js add --title="Motivational Quote" --body="Great things never come from comfort zone"
    - node app.js remove --title="Motivational Quote"
+   - node app.js list
+   - node app.js read --title="Motivational Quote"
 
 
 

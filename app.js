@@ -70,6 +70,8 @@ yargs.command({
     describe: 'List a note',
     handler: function () {
         console.log(chalk.magenta('---------------List of note-------------'));
+        notesapp.notelist();
+        console.log(chalk.magenta('-----------List of note completed---------'));
     }
 })
 
@@ -77,8 +79,18 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Read a list',
-    handler: function () {
+    builder: {
+        title: {
+            describe: 'Reading Note Description',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv) {
         console.log(chalk.magenta('---------------Reading a list------------'));
+        let title = argv.title;
+        notesapp.readnote(title);
+        console.log(chalk.magenta('-------------Reading a list Ends---------'));
     }
 })
 

@@ -156,8 +156,34 @@ const backUp = (_backup) => {
     fs.appendFileSync(backUpPath, ',\n')
     console.log(chalk.green('->  Creating backup for delete data'));
 }
-
+/**
+ * Function to print list in console
+ */
+const notesList = ()=>{
+    let _notes = readFile();
+    for(let note in _notes){
+        let temp = JSON.parse(_notes[note]);
+        if(temp.title != 'remove' ){
+            console.log(chalk.cyan(`    -- ${temp.title}`))
+        }
+    }
+}
+/**
+ * Function to read description in console
+ */
+const readNote = (data) =>{
+    let _notes = readFile();
+    for(let note in _notes){
+        let temp = JSON.parse(_notes[note]);
+        if(temp.title == data ){
+            console.log(chalk.cyan(`    - { Description } -     `))
+            console.log(chalk.yellow(`${temp.body}`))
+        }
+    }
+}
 module.exports = {
     filedata: fileData,
-    removenote: removeNote
+    removenote: removeNote,
+    notelist:notesList,
+    readnote:readNote
 }
