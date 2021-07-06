@@ -49,6 +49,8 @@
    - node app.js read
    - node app.js add --title="shopping list"
    - Using json to pass or get Data
+   - node app.js add --title="Motivational Quote" --body="Great things never come from comfort zone"
+   - node app.js remove --title="Motivational Quote"
 
 
 

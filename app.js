@@ -2,7 +2,7 @@
 // importing chalk library
 const chalk = require('chalk');
 const yargs = require('yargs');
-// const notesapp = require('./src/notesapp');
+const notesapp = require('./src/notesapp');
 
 //getting value from the command line using global variable
 const command = process.argv;
@@ -39,8 +39,9 @@ yargs.command({
     handler: function (argv) {
         // console.log('Adding a new note!',argv)
         console.log(chalk.magenta('------------Adding a new note----------'));
-        console.log(`Title:${argv.title}`);
-        console.log(`Body:${argv.body}`)
+        let author = 'Hariom gola'
+        notesapp.filedata(author,argv.title,argv.body);
+        console.log(chalk.magenta('-----------Adding Data Complete---------'));
     }
 })
 
@@ -48,8 +49,18 @@ yargs.command({
 yargs.command({
     command: 'remove',
     describe: 'Remove a note',
-    handler: function () {
+    builder: {
+        title:{
+            describe:'Remove Note Title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv) {
         console.log(chalk.magenta('-------------Removing the note-----------'));
+        let title = argv.title;
+        notesapp.removenote(title);
+        console.log(chalk.magenta('----------Removing the note Complete------'));
     }
 })
 
@@ -75,62 +86,3 @@ yargs.command({
 yargs.parse()
 
 //--------------------- Customize yargs version --------------------------//
-
-
-
-
-// function commandNotes(){
-//     let customCommand = command[2];
-//     if(customCommand === 'add'){
-//         console.log(chalk.green('Adding Note!'));
-//     }
-//     if(customCommand === 'remove'){
-//         console.log(chalk.red('Removing Notes!'));
-//     }
-// }
-
-// commandNotes();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Creating printData function to print data With the help of chalk npm module
- * @param {any} param 
- */
-// ------------------- Chalk function ----------------------- //
-// function of make use of chalk library
-function printData(param) {
-    let data = {
-        name: 'Hari',
-        Designation: 'Software Developer',
-        frontend: 'Angular',
-        Backend: 'node'
-    }
-    // printing all data using chalk library
-    console.log(chalk.red(data.name));
-    console.log(chalk.green(data.Designation));
-    console.log(chalk.yellow(data.frontend));
-    console.log(chalk.blue(data.Backend));
-
-    // Background color printing
-    console.log(chalk.bgRed(data.name));
-    console.log(chalk.bgGreen(data.Designation));
-    console.log(chalk.bgYellow(data.frontend));
-    console.log(chalk.bgBlue(data.Backend));
-
-    // End
-    let msg = chalk.green.inverse.bold('printData Success!');
-    console.log(msg);
-}
-// ------------------- Chalk function ----------------------- //
