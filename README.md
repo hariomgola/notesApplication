@@ -17,6 +17,9 @@ Simply clone the project or you can download the project in ZIP format extract i
 Simply Run command 'npm install'
 Run above command for functionality
 
+## Project Status
+     - Completed
+
 ## Made with :heart:
 Portfolio :computer: https://hariomgola.github.io/
 
