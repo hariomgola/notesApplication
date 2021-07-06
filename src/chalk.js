@@ -7,7 +7,7 @@ const chalk = require('chalk');
  */
 // ------------------- Chalk function ----------------------- //
 // function of make use of chalk library
-function printData(param) {
+const printData = (param) => {
     let data = {
         name: 'Hari',
         Designation: 'Software Developer',
@@ -33,13 +33,12 @@ function printData(param) {
 // ------------------- Chalk function ----------------------- //
 
 
-// function commandNotes(){
+// const commandNotes = () => {
 //     let customCommand = command[2];
-//     if(customCommand === 'add'){
+//     if (customCommand === 'add') {
 //         console.log(chalk.green('Adding Note!'));
 //     }
-//     if(customCommand === 'remove'){
+//     if (customCommand === 'remove') {
 //         console.log(chalk.red('Removing Notes!'));
 //     }
 // }
-

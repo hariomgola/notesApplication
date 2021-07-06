@@ -12,7 +12,7 @@ const backUpPath = './backup.txt'
 /**
  * Main Function to manipulate file
  */
-function fileManipulation(data) {
+const fileManipulation = (data) => {
     console.log(chalk.magenta('->  Insert data start'));
     checkFile();
     let _fileData = readFile();
@@ -30,7 +30,7 @@ function fileManipulation(data) {
 /**
  * Function to prepare jsonData and pass it to function
  */
-function fileData(author, title, body) {
+const fileData = (author, title, body) => {
     console.log(chalk.magenta('->  Creating Data for File'))
     // let data = {
     //     title: 'Motivational Quote',
@@ -50,11 +50,10 @@ function fileData(author, title, body) {
  * function to check wheather file is present of not
  * Author : hariom gola
  */
-function checkFile() {
+const checkFile = () => {
     if (fs.existsSync(filePath)) {
         console.log(chalk.magenta('->  File is Present '));
-    }
-    else {
+    } else {
         console.log(chalk.magenta('->  File is Not Present'));
         createFile();
     }
@@ -64,7 +63,7 @@ function checkFile() {
  * Function to create new file
  * Author : hariom gola
  */
-function createFile() {
+const createFile = () => {
     console.log(chalk.magenta('->  Creating a new file'));
     fs.writeFileSync(filePath, '{}');
 }
@@ -73,7 +72,7 @@ function createFile() {
  * function used to write down data into file
  * Author : hariom gola
  */
-function writeFile(note) {
+const writeFile = (note) => {
     console.log(chalk.magenta('->  Writing data into file'));
     fs.appendFileSync(filePath, note);
     fs.appendFileSync(filePath, ',\n')
@@ -83,9 +82,11 @@ function writeFile(note) {
  * function to read data from file
  * Author : hariom gola
  */
-function readFile() {
+const readFile = () => {
     console.log(chalk.magenta('->  Reading data from file'));
-    let fileData = fs.readFileSync(filePath, { encoding: "utf8" });
+    let fileData = fs.readFileSync(filePath, {
+        encoding: "utf8"
+    });
     fileData = JSON.parse(fileData);
     return fileData;
 }
@@ -94,7 +95,7 @@ function readFile() {
  * function to insert full new data into file
  * Author : hariom gola
  */
-function writeData(data) {
+const writeData = (data) => {
     console.log(chalk.magenta('->  Writting data into file'));
     fs.writeFileSync(filePath, data);
 }
@@ -103,7 +104,7 @@ function writeData(data) {
  * Function to export all data into desktop
  * Author : hariom gola
  */
-function exportNotes(path) {
+const exportNotes = (path) => {
     console.log(chalk.magenta('->  Exporting notes Data file'));
     let _exportData = JSON.stringify(readFile());
     fs.writeFileSync(path, _exportData);
@@ -112,7 +113,7 @@ function exportNotes(path) {
 /**
  * Function to Remove note from the file
  */
-function removeNote(_title) {
+const removeNote = (_title) => {
     let _filedata = readFile();
     let removeflag = true;
     for (let _data in _filedata) {
@@ -147,7 +148,7 @@ function removeNote(_title) {
 /**
  * Function to Create backup note file
  */
-function backUp(_backup) {
+const backUp = (_backup) => {
     if (!fs.existsSync(backUpPath)) {
         fs.writeFileSync(backUpPath, '');
     }

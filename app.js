@@ -40,7 +40,7 @@ yargs.command({
         // console.log('Adding a new note!',argv)
         console.log(chalk.magenta('------------Adding a new note----------'));
         let author = 'Hariom gola'
-        notesapp.filedata(author,argv.title,argv.body);
+        notesapp.filedata(author, argv.title, argv.body);
         console.log(chalk.magenta('-----------Adding Data Complete---------'));
     }
 })
@@ -50,8 +50,8 @@ yargs.command({
     command: 'remove',
     describe: 'Remove a note',
     builder: {
-        title:{
-            describe:'Remove Note Title',
+        title: {
+            describe: 'Remove Note Title',
             demandOption: true,
             type: 'string'
         }
